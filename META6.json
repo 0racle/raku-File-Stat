@@ -1,0 +1,14 @@
+{
+   "name" : "File::Stat",
+   "version" : "0.0.1",
+   "description" : "Get file status",
+   "perl" : "6.c",
+   "authors" : [ "Joshua Yeshouroun" ],
+   "provides" : {
+      "File::Stat" : "lib/File::Stat.pm6"
+   },
+   "depends" : [ "Exportable" ],
+   "source-url" : "git://github.com/0racle/p6-File-Stat.git",
+   "license"    : "Artistic-2.0"
+}
+
