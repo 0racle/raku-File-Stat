@@ -13,7 +13,7 @@ This object has methods that return the similarly named structure field name fro
 ```perl-6
 use File::Stat <stat>;
 
-say File::Stat.new($?FILE).mode;
+say File::Stat.new(path => $?FILE).mode;
 
 say stat($?FILE).uid
 
