@@ -10,13 +10,12 @@ Implements a File::Stat class, and an exportable `stat` function that will retur
 
 This object has methods that return the similarly named structure field name from the `stat(2)` function; namely: `dev`, `ino`, `mode`, `nlink`, `uid`, `gid`, `rdev`, `size`, `atime`, `mtime`, `ctime`, `blksize`, and `blocks`.
 
-```perl-6
+```perl6
 use File::Stat <stat>;
 
 say File::Stat.new(path => $?FILE).mode;
 
 say stat($?FILE).uid
-
 ```
 
 CAVEATS
