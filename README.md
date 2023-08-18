@@ -75,7 +75,7 @@ This field contains the file type and mode.
 
 Core alternative: [IO::Path.mode](https://docs.raku.org/type/IO/Path#method_mode)
 
-*NOTE:* The `IO::Path.mode` method only returns the 8-least significant bits, as there are no higher bits on non-POSIX systems
+*NOTE:* The `IO::Path.mode` method only returns the 8-least significant bits, as the higher bits are not platform-independent.
 
 ```raku
 my &permissions = *.base(2).flip.comb(3)».flip.reverse;

@@ -1,14 +1,14 @@
 
 use Exportable;
 
-class File::Stat:auth<zef:elcaro>:ver<1.0.0> {
+class File::Stat:auth<zef:elcaro>:ver<1.0.1> {
 
     use nqp;
     my sub nqp-stat($path,  \const) { nqp::stat($path,  const) }
     my sub nqp-lstat($path, \const) { nqp::lstat($path, const) }
 
     has Str() $.path;
-    has Bool $.l;
+    has Bool $.l = False;
     has &!stat = $!l ?? &nqp-lstat !! &nqp-stat;
 
     method dev     { &!stat($!path, nqp::const::STAT_PLATFORM_DEV)       }

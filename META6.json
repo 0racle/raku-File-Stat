@@ -1,7 +1,7 @@
 {
    "name" : "File::Stat",
    "auth": "zef:elcaro",
-   "version" : "1.0.0",
+   "version" : "1.0.1",
    "description" : "Access file stat fields",
    "tags": ["posix", "linux", "filetest"],
    "raku" : "6.c",
