@@ -1,7 +1,7 @@
 
 use Exportable;
 
-class File::Stat:auth<zef:elcaro>:ver<1.0.1> {
+class File::Stat:auth<zef:elcaro>:ver<1.0.2> {
 
     use nqp;
     my sub nqp-stat($path,  \const) { nqp::stat($path,  const) }
