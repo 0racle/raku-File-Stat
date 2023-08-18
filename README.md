@@ -75,7 +75,7 @@ This field contains the file type and mode.
 
 Core alternative: [IO::Path.mode](https://docs.raku.org/type/IO/Path#method_mode)
 
-*NOTE:* The `IO::Path.mode` method only returns the 8-least significant bits, as the higher bits are not platform-independent.
+**NOTE:** The `IO::Path.mode` method only returns the 8-least significant bits, as the higher bits are not platform-independent.
 
 ```raku
 my &permissions = *.base(2).flip.comb(3)».flip.reverse;
@@ -146,7 +146,7 @@ This is the time of the last access of file data.
 
 Core alternative: [IO::Path.accessed](https://docs.raku.org/type/IO/Path#method_accessed)
 
-*NOTE*: See "TIME DIFFERENCES" sections below for more info
+**NOTE:** See "TIME DIFFERENCES" section.
 
 ```raku
 say stat($?FILE).atime;  # --> Int
@@ -159,7 +159,7 @@ This is the time of last modification of file data.
 
 Core alternative: [IO::Path.modified](https://docs.raku.org/type/IO/Path#method_modified)
 
-*NOTE*: See "TIME DIFFERENCES" sections below for more info
+**NOTE:** See "TIME DIFFERENCES" section.
 
 ```raku
 say stat($?FILE).mtime;  # --> Int
@@ -172,7 +172,7 @@ This is the file's last status change timestamp (time of last change to the inod
 
 Core alternative: [IO::Path.created](https://docs.raku.org/type/IO/Path#method_created)
 
-*NOTE*: See "TIME DIFFERENCES" sections below for more info
+**NOTE:** See "TIME DIFFERENCES" section.
 
 ```raku
 say stat($?FILE).ctime;  # --> Int
@@ -207,7 +207,7 @@ ADDITIONAL METHODS
 
 You can return all fields as a `Hash`.
 
-Useful if you wan pull out multiple fields (via a hash slice) or convert to JSON or similar format.
+Useful if you want to pull out multiple fields (via a hash slice) or convert to JSON (or other format).
 
 ```raku
 say stat($?FILE).Hash
