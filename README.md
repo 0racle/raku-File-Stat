@@ -37,9 +37,9 @@ say ($file.s, $file.stat.blksize);
 ALTERNATIVES
 ============
 
-When this module was first written, there was no easy way to get certain stats (eg. `gid`) from an [IO::Path](https://docs.raku.org/type/IO/Path) object. Since then, several more methods have been added to `IO::Path`, which means you may not even need this module.
+When this module was first written, there was no easy way to get certain stat fields (eg. `gid`) from an [IO::Path](https://docs.raku.org/type/IO/Path) object. Since then, several methods have been added to `IO::Path` to access those fields, which means you may not even need this module!
 
-Below I will document the methods provided by `File::Stat`, and - where available - it's equivalent core `IO::Path` method (as well as any differences).
+Below I will document the methods provided by `File::Stat`, and - where available - the equivalent core `IO::Path` method (as well as any differences).
 
 Initial descriptions below are verbatim from `man 2 stat`.
 
@@ -219,7 +219,7 @@ TIME DIFFERENCES
 
 The time related functions (eg. `mtime`) will differ slightly from their core alternatives (eg. `modified`).
 
-This module will return an `Int`, where as Raku will return an `Instant`.  You may notice that when this `Instant` is coerced to an `Int` that there is a difference of 37 seconds.
+This module will return an `Int`, where as the `IO::Path` method will return an `Instant`.  You may notice that when this `Instant` is coerced to an `Int` that there is a difference of 37 seconds.
 
 ```raku
 say stat($?FILE).mtime;      # 1692319800
@@ -237,6 +237,8 @@ This difference is due to leap-seconds, of which Raku is aware.
 
 CAVEATS
 =======
+
+The `File::Stat` class provides dynamic access to the stat fields, they are not static attributes. This means, for example, that even _after_ you create a `File::Stat` object, calling `.size` on the instance can change between calls. This is in line with what `IO::Path.s` would do, but may not be what you expect.
 
 Some methods do not mean anything in non-POSIX systems.
 
